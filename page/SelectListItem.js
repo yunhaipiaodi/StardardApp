@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,TouchableOpacity,Text,StyleSheet,Image} from 'react-native';
+import {View,TouchableOpacity,Text,StyleSheet,Image,Dimensions} from 'react-native';
 
 export default class SelectListItem extends React.Component{
 
@@ -20,17 +20,15 @@ export default class SelectListItem extends React.Component{
         const backColor = this.props.selected? "gray" :"white";
         return(
             <TouchableOpacity onPress = {this._onPress}>
-                <View style = {{
-                    height:70,
-                    flexDirection:'row',
-                    alignItems: 'center',
-                    justifyContent: 'flex-start',
-                    backgroundColor:backColor}}>
-                    <Image style={style.circleImage}
+                <View style = {style.container}>
+                    <Image style={style. coverImage}
                             source = {this.props.imageUrl}/>
                     <View style = {style.textContainer}>
                         <Text style={style.title}>{this.props.title}</Text>
-                        <Text style = {style.content}>{this.props.content}</Text>
+                        <View style={{flexDirection:'row',flex:1}}>
+                            <Text style = {style.content}>{this.props.content}</Text>
+                        </View>
+
                     </View>
                 </View>
             </TouchableOpacity>
@@ -40,35 +38,38 @@ export default class SelectListItem extends React.Component{
 
 const style = StyleSheet.create({
     container:{
+        width:Dimensions.get('window').width,
+        height:70,
         flexDirection:'row',
-        alignItems: 'stretch',
-        justifyContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        marginTop:8,
     },
 
     textContainer:{
         flexDirection:'column',
         alignSelf:'stretch',
-        justifyContent:'space-between',
-        marginLeft:16,
+        justifyContent:'flex-start',
+        flex:1,
     },
 
     title:{
         fontSize:16,
         fontWeight:'bold',
-        marginTop:14,
     },
 
     content:{
-        fontSize:14,
-        marginBottom:14,
+        flex:1,
+        flexWrap:'wrap',
+        fontSize:12,
+        marginTop:8,
+        marginRight:8,
     },
 
-    circleImage:{
-        borderWidth:1,
-        borderColor:'rgba(0,0,0,0.2)',
-        width:50,
-        height:50,
-        borderRadius:25,
-        marginLeft:16,
+
+    coverImage:{
+        width:108,
+        height:72,
+        margin:8,
     }
 });
