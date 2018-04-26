@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, View,StatusBar,Image} from 'react-native'
+import {StyleSheet, View, StatusBar, Image, Dimensions, Alert} from 'react-native'
 
 export default class LoadingPage extends React.Component{
     static navigationOptions = {
@@ -10,7 +10,7 @@ export default class LoadingPage extends React.Component{
 
     componentDidMount(){
         this.timeoutHandler = setTimeout(() => {
-            this.props.navigation.navigate("Login");
+            this.props.navigation.navigate("Home");
         },2000);
     }
 
@@ -23,8 +23,9 @@ export default class LoadingPage extends React.Component{
             <View style={styles.container}>
                 <StatusBar hidden={true}/>
                 <Image
-                    source={{url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523612677544&di=bac373b241dcc091f29e0bfc315a01b0&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F015fd656d938a46ac7252ce6200b0f.jpg'}}
+                    source={{uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525164110&di=b1405b2fe1f83c4356267e8124594743&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01f600570b0b7e32f8751b3f338b9e.jpg'}}
                     style={styles.homeImage}
+                    resizeMode = 'cover'
                 />
             </View>
         );
@@ -40,7 +41,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     homeImage:{
-    flex:1
+        width:Dimensions.get("window").width,
+        height:Dimensions.get("window").height,
 }
 });
 

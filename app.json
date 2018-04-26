@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "26.0.0"
+    "sdkVersion": "26.0.0",
+    "name":"StandardApp",
+    "version":"1.0.1",
+    "icon":"./icon/icon.png",
+    "android":{
+      "package":"com.haochuan.standardapp"
+    },
+    "ios":{
+      "bundleIdentifier":"com.haochuan.standardapp"
+    }
   }
 }
+

@@ -28,7 +28,11 @@ export default class SelectListItem extends React.Component{
                         <View style={{flexDirection:'row',flex:1}}>
                             <Text style = {style.content}>{this.props.content}</Text>
                         </View>
-
+                        <View style = {style.bottom}>
+                            <Text style = {style.price}>{this.props.price}</Text>
+                            <Text style = {style.sellCount}>{this.props.sellCount}</Text>
+                        </View>
+                        <View style ={style.bottomLine}/>
                     </View>
                 </View>
             </TouchableOpacity>
@@ -71,5 +75,28 @@ const style = StyleSheet.create({
         width:108,
         height:72,
         margin:8,
-    }
+    },
+
+    bottom:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+    },
+
+    price:{
+        color:'#f4511e',
+        fontSize:10,
+    },
+
+    sellCount:{
+        color:'#9e9e9e',
+        fontSize:10,
+        marginRight:8,
+    },
+
+    bottomLine:{
+        height:1,
+        alignSelf:'stretch',
+        backgroundColor:'#9e9e9e',
+        marginRight:8,
+    },
 });
